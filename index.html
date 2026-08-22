@@ -1497,4 +1497,72 @@ document.getElementById("setManualWater")?.addEventListener("click",()=>{
  waterCount=Math.max(0,Math.min(30,Number.isFinite(v)?v:0));saveWater();renderWater();
 });
 renderWater();
-</script></main></body></html>
+</script></main>
+<script>
+(function(){
+  const PREFIX = "strongSteady_v1_";
+
+  function controlKey(el, i){
+    const parts = [];
+    let node = el;
+    while(node && node !== document.body){
+      if(node.id){ parts.unshift("#"+node.id); break; }
+      if(node.tagName){
+        let idx = 1, sib = node;
+        while((sib=sib.previousElementSibling)) if(sib.tagName===node.tagName) idx++;
+        parts.unshift(node.tagName.toLowerCase()+":nth-"+idx);
+      }
+      node = node.parentElement;
+    }
+    return PREFIX + (el.name || el.id || parts.join(">") || i);
+  }
+
+  function saveAll(){
+    const controls = document.querySelectorAll('input, textarea, select');
+    controls.forEach((el,i)=>{
+      if(el.type === "file" || el.type === "button" || el.type === "submit") return;
+      const key = controlKey(el,i);
+      const val = (el.type === "checkbox" || el.type === "radio") ? el.checked : el.value;
+      try { localStorage.setItem(key, JSON.stringify(val)); } catch(e){}
+    });
+    try { localStorage.setItem(PREFIX+"lastSaved", new Date().toISOString()); } catch(e){}
+    showSaved();
+  }
+
+  function restoreAll(){
+    const controls = document.querySelectorAll('input, textarea, select');
+    controls.forEach((el,i)=>{
+      if(el.type === "file" || el.type === "button" || el.type === "submit") return;
+      const raw = localStorage.getItem(controlKey(el,i));
+      if(raw === null) return;
+      try{
+        const val = JSON.parse(raw);
+        if(el.type === "checkbox" || el.type === "radio") el.checked = !!val;
+        else el.value = val ?? "";
+      }catch(e){}
+    });
+  }
+
+  function showSaved(){
+    let badge=document.getElementById("saveBadge");
+    if(!badge){
+      badge=document.createElement("div");
+      badge.id="saveBadge";
+      badge.textContent="✓ Sparat";
+      badge.style.cssText="position:fixed;right:14px;bottom:14px;z-index:9999;background:#fff;border:1px solid #efb5cc;color:#b74472;padding:8px 12px;border-radius:999px;font:700 12px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.08);opacity:0;transition:opacity .2s";
+      document.body.appendChild(badge);
+    }
+    badge.style.opacity="1";
+    clearTimeout(window.__saveBadgeTimer);
+    window.__saveBadgeTimer=setTimeout(()=>badge.style.opacity="0",900);
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    restoreAll();
+    document.addEventListener("change", saveAll);
+    document.addEventListener("input", saveAll);
+  });
+})();
+</script>
+
+</body></html>
