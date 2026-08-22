@@ -187,6 +187,27 @@ h2{font-size:18px}
 .pilates-photo-card{margin:9px 0 16px 33px!important;padding:5px!important;background:white!important;border:1px solid #efbfd2!important;border-radius:16px!important}
 .pilates-photo-card img{display:block!important;width:100%!important;max-width:430px!important;max-height:310px!important;height:auto!important;object-fit:contain!important;margin:auto!important;border-radius:12px!important}
 @media(max-width:480px){.pilates-photo-card{margin-left:0!important}}
+
+.weight-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:10px;margin:8px 0 16px}
+.weight-form{display:grid;grid-template-columns:1fr 1fr auto;gap:6px;align-items:end}
+.weight-field label{display:block;font-size:12px;font-weight:800;margin:0 0 5px}
+.weight-field input{width:100%;border:1px solid var(--border);border-radius:9px;padding:8px;background:white;color:var(--text);font-size:14px}
+.weight-save{border:0;background:var(--pink);color:white;border-radius:9px;padding:9px 10px;font-size:13px;font-weight:800}
+.weight-summary{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0}
+.weight-stat{background:#fff7fb;border:1px solid #f4d5e1;border-radius:10px;padding:7px;text-align:center;font-size:12px}
+.weight-stat b{display:block;color:var(--pink);font-size:17px}
+.weight-history{margin-top:10px}
+.weight-entry{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;border-top:1px solid #f4d5e1;padding:9px 2px}
+.weight-delete{border:0;background:transparent;color:#a34c70;font-size:18px}
+@media(max-width:480px){.weight-form{grid-template-columns:1fr 1fr}.weight-save{grid-column:1/-1}}
+
+
+.friday-weigh{padding:9px 10px!important}
+.friday-weigh-row{display:grid;grid-template-columns:1fr auto;gap:6px;margin-top:7px}
+.friday-weight-input{width:100%;border:1px solid var(--border);border-radius:9px;padding:8px;background:white;color:var(--text);font-size:14px}
+.friday-weight-save{border:0;background:var(--pink);color:white;border-radius:9px;padding:8px 11px;font-weight:800;font-size:13px}
+.friday-weight-status{margin-top:5px}
+
 </style></head>
 <body><main><h1>🌸 Strong & Steady</h1><p class="intro"><b>Min plan för resten av 2026 · träning · mat · vatten</b><br>Börja i “Idag”. Träningsprogram och matidéer finns längre ner.</p>
 
@@ -197,6 +218,7 @@ h2{font-size:18px}
 
 </nav>
 <div class="stats"><div class="stat">Pass klara<div id="done" class="big">0/24</div></div><div class="stat">Veckor klara<div id="weeksDone" class="big">0/8</div></div></div><div class="progress"><div id="bar"></div></div>
+
 
 
 
@@ -249,6 +271,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">28 augusti</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="28 augusti"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -305,6 +328,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">4 september</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="4 september"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -361,6 +385,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">11 september</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="11 september"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -417,6 +442,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">18 september</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="18 september"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -473,6 +499,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">25 september</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="25 september"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -529,6 +556,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">2 oktober</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="2 oktober"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -585,6 +613,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">9 oktober</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="9 oktober"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -641,6 +670,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">16 oktober</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="16 oktober"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -697,6 +727,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">23 oktober</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="23 oktober"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -753,6 +784,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">30 oktober</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="30 oktober"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -809,6 +841,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">6 november</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="6 november"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -865,6 +898,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">13 november</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="13 november"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -921,6 +955,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">20 november</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="20 november"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -977,6 +1012,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">27 november</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="27 november"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -1033,6 +1069,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">4 december</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="4 december"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -1089,6 +1126,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">11 december</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="11 december"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -1145,6 +1183,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">18 december</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="18 december"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -1201,6 +1240,7 @@ h2{font-size:18px}
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
 <input class="native-text" type="text" placeholder="T.ex. 40 min promenad…"></div></div></details><details class="day-card"><summary>Fredag <span class="date-label">25 december</span></summary><div class="day-inner">
+<div class="day-block friday-weigh" data-weight-date="25 december"><b>⚖️ Fredagsinvägning</b><div class="friday-weigh-row"><input class="friday-weight-input" type="number" inputmode="decimal" step="0.1" min="20" max="300" placeholder="Vikt i kg"><button class="friday-weight-save" type="button">Spara</button></div><div class="friday-weight-status small"></div></div>
 <div class="day-block water-block"><b>💧 Vatten</b><div class="day-water"><label><input type="checkbox">1</label><label><input type="checkbox">2</label><label><input type="checkbox">3</label><label><input type="checkbox">4</label><label><input type="checkbox">5</label><label><input type="checkbox">6</label><label><input type="checkbox">7</label><label><input type="checkbox">8</label></div></div>
 <div class="day-block"><b>🍽️ Mat idag</b>
 <div class="meal-write"><b>🥞 Frukost</b><input class="native-text" type="text" placeholder="Skriv vad du åt till frukost…"></div><div class="meal-write"><b>🥗 Lunch</b><input class="native-text" type="text" placeholder="Skriv vad du åt till lunch…"></div>
@@ -1581,6 +1621,95 @@ renderWater();
  document.addEventListener("DOMContentLoaded",restore);
  document.addEventListener("input",save,true);
  document.addEventListener("blur",save,true);
+})();
+</script>
+
+
+<script>
+(function(){
+  const KEY='strongSteadyWeightLogV1';
+  const dateEl=document.getElementById('weightDate');
+  const kgEl=document.getElementById('weightKg');
+  const saveEl=document.getElementById('weightSave');
+  const histEl=document.getElementById('weightHistory');
+  const latestEl=document.getElementById('latestWeight');
+  const changeEl=document.getElementById('weightChange');
+  if(!dateEl||!kgEl||!saveEl) return;
+
+  if(!dateEl.value){
+    const d=new Date();
+    const days=(5-d.getDay()+7)%7;
+    d.setDate(d.getDate()+days);
+    const off=d.getTimezoneOffset();
+    dateEl.value=new Date(d.getTime()-off*60000).toISOString().slice(0,10);
+    const fridayLabel=document.getElementById('weightFridayLabel');
+    if(fridayLabel) fridayLabel.textContent=d.toLocaleDateString('sv-SE',{day:'numeric',month:'short'});
+  }
+  function load(){
+    try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}
+  }
+  function store(items){localStorage.setItem(KEY,JSON.stringify(items))}
+  function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+  function render(){
+    let items=load().sort((a,b)=>a.date.localeCompare(b.date));
+    if(!items.length){
+      latestEl.textContent='–'; changeEl.textContent='–';
+      histEl.innerHTML='<div class="small">Ingen invägning sparad ännu.</div>'; return;
+    }
+    const latest=items[items.length-1];
+    latestEl.textContent=Number(latest.kg).toFixed(1).replace('.',',');
+    if(items.length>1){
+      const diff=Number(latest.kg)-Number(items[items.length-2].kg);
+      changeEl.textContent=(diff>0?'+':'')+diff.toFixed(1).replace('.',',')+' kg';
+    }else changeEl.textContent='–';
+    histEl.innerHTML=[...items].reverse().map((x,i)=>{
+      const idx=items.findIndex(y=>y.date===x.date && Number(y.kg)===Number(x.kg));
+      const d=new Date(x.date+'T12:00:00');
+      const label=d.toLocaleDateString('sv-SE',{day:'numeric',month:'short',year:'numeric'});
+      return '<div class="weight-entry"><span>'+esc(label)+'</span><b>'+Number(x.kg).toFixed(1).replace('.',',')+' kg</b><button class="weight-delete" type="button" data-i="'+idx+'" aria-label="Ta bort">×</button></div>';
+    }).join('');
+    histEl.querySelectorAll('.weight-delete').forEach(btn=>btn.addEventListener('click',()=>{
+      let arr=load().sort((a,b)=>a.date.localeCompare(b.date));
+      arr.splice(Number(btn.dataset.i),1); store(arr); render();
+    }));
+  }
+  saveEl.addEventListener('click',()=>{
+    const kg=parseFloat(String(kgEl.value).replace(',','.'));
+    if(!dateEl.value || !Number.isFinite(kg)){alert('Fyll i datum och vikt.');return}
+    let items=load();
+    const same=items.findIndex(x=>x.date===dateEl.value);
+    const entry={date:dateEl.value,kg:Math.round(kg*10)/10};
+    if(same>=0) items[same]=entry; else items.push(entry);
+    store(items); kgEl.value=''; render();
+  });
+  render();
+})();
+</script>
+
+
+<script>
+(function(){
+ const PREFIX='strongSteadyFridayWeightV1_';
+ function setup(){
+  document.querySelectorAll('.friday-weigh').forEach(card=>{
+   const date=card.dataset.weightDate||'';
+   const input=card.querySelector('.friday-weight-input');
+   const btn=card.querySelector('.friday-weight-save');
+   const status=card.querySelector('.friday-weight-status');
+   const key=PREFIX+date;
+   const saved=localStorage.getItem(key);
+   if(saved!==null){input.value=saved;status.textContent='Sparat: '+String(saved).replace('.',',')+' kg';}
+   btn.addEventListener('click',()=>{
+    const v=parseFloat(String(input.value).replace(',','.'));
+    if(!Number.isFinite(v)){status.textContent='Skriv in vikten först.';return;}
+    const fixed=(Math.round(v*10)/10).toFixed(1);
+    localStorage.setItem(key,fixed);
+    input.value=fixed;
+    status.textContent='✓ Sparat: '+fixed.replace('.',',')+' kg';
+   });
+  });
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
 })();
 </script>
 
