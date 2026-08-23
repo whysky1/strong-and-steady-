@@ -628,12 +628,93 @@ details.food-details > summary{
 .ex-big{font-size:23px;font-weight:900}
 .ex-note{font-size:11px;opacity:.72;margin-top:8px;line-height:1.4}
 </style>
+
+<style>
+#liveClockBox{position:sticky;top:6px;z-index:50;display:flex;justify-content:flex-end;pointer-events:none;margin:0 0 6px}
+#liveClock{background:rgba(255,255,255,.92);border:1px solid #eadde4;border-radius:999px;padding:7px 11px;font-variant-numeric:tabular-nums;font-weight:900;font-size:15px;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+</style>
+<style>
+.ai-kh-box{background:#fff;border:1px solid #eadde4;border-radius:18px;padding:14px;margin:12px 0}
+.ai-kh-box textarea{width:100%;min-height:82px;border:1px solid #ddd;border-radius:12px;padding:11px;font:inherit}
+.ai-kh-box button{border:0;border-radius:12px;padding:11px 14px;font-weight:800;margin-top:8px}
+#aiKhResult{margin-top:10px;padding:11px;border-radius:12px;background:#f7f4f6;display:none}
+</style><style>
+#foodDbScroll,.food-db-wrap{display:none!important}
+.native-scroll-food{
+  display:block!important;
+  width:100%!important;
+  height:220px!important;
+  min-height:220px!important;
+  overflow-y:scroll!important;
+  -webkit-overflow-scrolling:touch;
+  box-sizing:border-box;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:6px;
+  background:#fff;
+  color:var(--text);
+  font-size:13px;
+}
+.native-scroll-food optgroup{font-weight:900}
+.native-scroll-food option{padding:5px 6px;white-space:normal}
+</style><style>
+#ownCategoryTabs,
+#ownFoodCategory,
+label:has(#ownFoodCategory){display:none!important}
+.own-food-list{height:240px!important;max-height:240px!important;overflow-y:scroll!important;-webkit-overflow-scrolling:touch!important}
+</style><style>
+#ownFoodList{display:block!important;visibility:visible!important;opacity:1!important;height:230px!important;overflow-y:auto!important;background:white!important}
+#ownFoodList .static-food{display:grid!important;grid-template-columns:1fr auto!important}
+</style><style>
+#ownFoodList{height:330px!important;max-height:330px!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;padding:0 8px!important}
+.static-food-group{position:sticky;top:0;z-index:2;background:#fff7fb;padding:9px 5px;font-weight:950;font-size:13px;border-bottom:1px solid var(--border)}
+.static-food{display:grid!important;grid-template-columns:1fr auto!important;gap:8px!important}
+</style><style>
+#ownFoodList{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  height:360px!important;
+  max-height:360px!important;
+  overflow-y:scroll!important;
+  -webkit-overflow-scrolling:touch!important;
+  background:#fff!important;
+}
+.static-food-group{display:block!important}
+#ownFoodList .static-food{display:grid!important}
+</style>
+
+<style id="preworkout-style">
+.preworkout-card{background:#fff;border:2px solid var(--border);border-radius:20px;padding:15px;margin:12px 0 22px}
+.preworkout-card h3{margin:0 0 4px;color:var(--pink)}
+.pre-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.pre-field{display:block;font-size:12px;font-weight:850}
+.pre-field input,.pre-field select{display:block;width:100%;box-sizing:border-box;margin-top:5px;border:1px solid var(--border);border-radius:11px;padding:11px;background:#fff;color:var(--text);font-size:15px}
+.temp-target-box{margin:14px 0;padding:14px;border-radius:16px;background:#fff7fb;border:1px solid var(--border);text-align:center}
+.temp-clock{font-variant-numeric:tabular-nums;font-size:34px;font-weight:950;color:var(--pink);letter-spacing:1px;margin:8px 0}
+.temp-status{font-size:12px;opacity:.75;min-height:18px}
+.temp-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+.temp-actions button,.pre-analyse,.pre-save{border:1px solid var(--border);background:#fff;border-radius:11px;padding:11px;font-weight:900;color:var(--text)}
+.temp-actions .primary,.pre-analyse,.pre-save{background:var(--pink);color:#fff;border-color:var(--pink)}
+.pre-check{display:flex;align-items:center;gap:8px;text-align:left;margin:9px 0;font-size:13px;font-weight:800}
+.pre-check input{width:22px;height:22px;accent-color:var(--pink)}
+.pre-result{display:none;margin-top:12px;padding:12px;border-radius:13px;background:#fff7fb;line-height:1.45}
+.pre-log{margin-top:15px;border-top:1px solid var(--border);padding-top:12px}
+.pre-log-item{padding:9px 2px;border-bottom:1px solid #f1e8ed;font-size:12px;line-height:1.4}
+.pre-after{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px}
+.pre-after input{width:100%;border:1px solid var(--border);border-radius:11px;padding:11px;font-size:15px}
+@media(max-width:430px){.pre-grid{grid-template-columns:1fr}.temp-clock{font-size:30px}}
+</style>
+
 </head>
-<body><main><h1>🌸 Strong & Steady</h1><p class="intro"><b>Min plan för resten av 2026 · träning · mat · vatten</b><br>Börja i “Idag”. Träningsprogram och matidéer finns längre ner.</p>
+<body>
+<div id="liveClockBox"><div id="liveClock" aria-label="Aktuell tid">--:--:--</div></div>
+<main><h1>🌸 Strong & Steady</h1><p class="intro"><b>Min plan för resten av 2026 · träning · mat · vatten</b><br>Börja i “Idag”. Träningsprogram och matidéer finns längre ner.</p>
 
 <nav class="main-nav"><a href="#daily5">📅 Aug–dec</a>
 <a href="#training">🧘 Träning</a>
 <a href="#gym">🏋️ Gym</a>
+<a href="#preworkout">🏃 Inför träning</a>
 <a href="#food">🥗 Kost</a>
 <a href="#carbs">🧮 KH-räknare</a>
 
@@ -650,6 +731,11 @@ details.food-details > summary{
   <p>Din egen matlista.</p>
 </section>
 
+<div class="ai-kh-box"><b>🧠 Skriv vad du åt</b>
+<div class="small">T.ex. “en stor tallrik havregrynsgröt med mjölk och sylt”.</div>
+<textarea id="aiFoodText" placeholder="Vad åt du?"></textarea>
+<button type="button" id="aiKhBtn">🧠 Förstå maten & räkna KH</button>
+<div id="aiKhResult"></div></div>
 <div class="my-food-white">
   <h3>Min mat</h3>
 
@@ -6750,7 +6836,53 @@ details.food-details > summary{
 </div>
 <div class="day-block"><b>🚶 Rörelse idag</b>
 <label class="day-check"><input type="checkbox"> Pilates / gym</label><label class="day-check"><input type="checkbox"> Promenad / annan rörelse</label>
-<textarea class="native-text own-training" rows="4" placeholder="Skriv egna gymövningar / vad du gjorde idag…"></textarea></div></div></details></div></details><section id="training" class="section-title"><h2>② 🧘‍♀️ PILATESPROGRAM · 8 VECKOR</h2><p>Startprogrammet är 8 veckor. Efter det kan du återanvända favoritpassen och gympassen fram till december.</p></section>
+<textarea class="native-text own-training" rows="4" placeholder="Skriv egna gymövningar / vad du gjorde idag…"></textarea></div></div></details></div></details>
+<section id="preworkout" class="section-title">
+  <h2>🏃 INFÖR TRÄNING</h2>
+  <p>Enkel planering före passet. Appen räknar och loggar – den styr inte pumpen.</p>
+</section>
+<div class="preworkout-card">
+  <h3>Mitt läge nu</h3>
+  <div class="pre-grid">
+    <label class="pre-field">Blodsocker nu (mmol/L)
+      <input id="preGlucose" type="number" inputmode="decimal" min="0" step="0.1" placeholder="T.ex. 7,2">
+    </label>
+    <label class="pre-field">Aktivt insulin / IOB (E)
+      <input id="preIob" type="number" inputmode="decimal" min="0" step="0.1" placeholder="T.ex. 1,2">
+    </label>
+    <label class="pre-field">Träning
+      <select id="preActivity"><option>Promenad</option><option>Cardio</option><option>Gym</option><option>Simning</option><option>Pilates</option><option>Annat</option></select>
+    </label>
+    <label class="pre-field">Hur länge?
+      <select id="preDuration"><option value="30">30 min</option><option value="45">45 min</option><option value="60" selected>60 min</option><option value="90">90 min</option><option value="120">120 min</option></select>
+    </label>
+  </div>
+
+  <div class="temp-target-box">
+    <b>⏱ Temp Target – 2 timmar</b>
+    <div id="tempClock" class="temp-clock">02:00:00</div>
+    <div id="tempStatus" class="temp-status">Inte startad</div>
+    <label class="pre-check"><input id="tempConfirmed" type="checkbox"> Jag har själv startat Temp Target i pumpen</label>
+    <div class="temp-actions">
+      <button type="button" id="tempStart" class="primary">▶ Starta 2 h</button>
+      <button type="button" id="tempReset">↻ Nollställ</button>
+    </div>
+  </div>
+
+  <button type="button" id="preAnalyse" class="pre-analyse">Analysera läget</button>
+  <div id="preResult" class="pre-result"></div>
+
+  <div class="pre-log">
+    <b>Efter träningen</b>
+    <div class="pre-after">
+      <input id="postGlucose" type="number" inputmode="decimal" min="0" step="0.1" placeholder="Blodsocker efter (mmol/L)">
+      <button type="button" id="preSave" class="pre-save">Spara pass</button>
+    </div>
+    <div id="preHistory"></div>
+  </div>
+</div>
+
+<section id="training" class="section-title"><h2>② 🧘‍♀️ PILATESPROGRAM · 8 VECKOR</h2><p>Startprogrammet är 8 veckor. Efter det kan du återanvända favoritpassen och gympassen fram till december.</p></section>
 <details class="big-program-tab">
 <summary>🧘‍♀️ Öppna Pilatesprogrammet</summary>
 <div class="program-inner">
@@ -8317,6 +8449,12 @@ renderWater();
 (function(){
  const name=document.getElementById('ownFoodName'),kh=document.getElementById('ownFoodKh'),baseQty=document.getElementById('ownFoodBaseQty'),cat=document.getElementById('ownFoodCategory'),tabs=document.getElementById('ownCategoryTabs');
  const save=document.getElementById('ownFoodSave'),list=document.getElementById('ownFoodList');
+ let customContainer=document.getElementById('customSavedFoods');
+ if(list && !customContainer){
+   customContainer=document.createElement('div');
+   customContainer.id='customSavedFoods';
+   list.prepend(customContainer);
+ }
  const use=document.getElementById('ownFoodUse'),chosen=document.getElementById('ownFoodChosen');
  const qty=document.getElementById('ownFoodQty'),result=document.getElementById('ownFoodResult');
  const mealAdd=document.getElementById('ownMealAdd'),mealList=document.getElementById('ownMealList');
@@ -8357,11 +8495,12 @@ renderWater();
 
  function saveFoods(){localStorage.setItem('strongOwnFoods',JSON.stringify(foods))}
  function renderFoods(){
+   if(!customContainer)return;
    const visible=foods.map((f,i)=>({f,i}));
-   if(!visible.length){list.innerHTML='<div class="small" style="padding:10px 0">Inga alternativ ännu.</div>';return}
-   list.innerHTML=visible.map(x=>'<div class="own-food-item"><span><b>'+esc(x.f.name)+'</b><br><small>'+x.f.kh+' g KH / 1<br><span class="kh-status kh-est">≈ uppskattning</span></small></span><button type="button" data-use="'+x.i+'">＋</button><button type="button" class="del" data-del="'+x.i+'">×</button></div>').join('');
-   list.querySelectorAll('[data-use]').forEach(b=>b.onclick=()=>selectFood(Number(b.dataset.use)));
-   list.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{foods.splice(Number(b.dataset.del),1);saveFoods();renderFoods()});
+   customContainer.innerHTML='<div class="static-food-group">⭐ Mina sparade</div>'+
+     visible.map(x=>'<div class="own-food-item"><span><b>'+esc(x.f.name)+'</b><br><small>'+x.f.kh+' g KH / 1<br><span class="kh-status kh-est">≈ sparat värde</span></small></span><button type="button" data-use="'+x.i+'">＋</button><button type="button" class="del" data-del="'+x.i+'">×</button></div>').join('');
+   customContainer.querySelectorAll('[data-use]').forEach(b=>b.onclick=()=>selectFood(Number(b.dataset.use)));
+   customContainer.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{foods.splice(Number(b.dataset.del),1);saveFoods();renderFoods()});
  }
  function selectFood(i){selected=foods[i];use.hidden=false;chosen.textContent=selected.name;qty.value='1';calc()}
  function calc(){if(!selected)return;result.textContent=(Math.round(selected.kh*Number(qty.value)*10)/10).toLocaleString('sv-SE')+' g KH'}
@@ -8455,7 +8594,7 @@ document.addEventListener('DOMContentLoaded',function(){
     </div>
 
     <div class="food-modal-result">≈ <strong id="foodModalResult">0 g KH</strong></div>
-    <button type="button" id="foodModalAdd" class="food-modal-add">＋ Lägg till i måltiden</button>
+    <button type="button" id="foodModalAdd" class="food-modal-add">✓ Använd i KH-räknaren</button>
   </div>
 </div>
 
@@ -8506,20 +8645,15 @@ document.addEventListener('DOMContentLoaded', function () {
   add.addEventListener('click',function(){
     if(!selected)return;
     const value=Math.round(selected.kh*q*10)/10;
-    // Feed the existing meal UI if present.
-    const mealList=document.getElementById('ownMealList');
-    const totalEl=document.getElementById('ownMealTotal');
-    if(mealList){
-      if(mealList.querySelector('.small')) mealList.innerHTML='';
-      const row=document.createElement('div');
-      row.className='own-meal-row modal-added';
-      row.dataset.kh=String(value);
-      row.innerHTML='<span>'+q+' × '+selected.name+'</span><b>'+value.toLocaleString('sv-SE')+' g KH</b>';
-      mealList.appendChild(row);
-      const total=[...mealList.querySelectorAll('.modal-added')].reduce((sum,r)=>sum+Number(r.dataset.kh),0);
-      if(totalEl)totalEl.textContent=(Math.round(total*10)/10).toLocaleString('sv-SE')+' g KH';
-    }
+    const nameInput=document.getElementById('ownFoodName');
+    const qtyInput=document.getElementById('ownFoodBaseQty');
+    const khInput=document.getElementById('ownFoodKh');
+    if(nameInput) nameInput.value=selected.name;
+    if(qtyInput) qtyInput.value=String(q);
+    if(khInput) khInput.value=String(value);
     modal.hidden=true;
+    document.querySelector('.my-food-white')?.scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>khInput?.focus(),350);
   });
 });
 </script>
@@ -8628,57 +8762,100 @@ document.addEventListener("DOMContentLoaded",function(){
  });
 });
 </script>
+
+<script>
+(function(){
+  function updateLiveClock(){
+    var el=document.getElementById("liveClock");
+    if(!el) return;
+    var now=new Date();
+    el.textContent=now.toLocaleTimeString("sv-SE",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+  }
+  updateLiveClock();
+  setInterval(updateLiveClock,1000);
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+ const b=document.getElementById("aiKhBtn"),i=document.getElementById("aiFoodText"),o=document.getElementById("aiKhResult");
+ if(!b||!i||!o)return;
+ b.addEventListener("click",async()=>{
+  if(!i.value.trim())return;
+  o.style.display="block";o.textContent="Räknar…";b.disabled=true;
+  try{
+   const r=await fetch("/api/carbs",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({food:i.value.trim()})});
+   const d=await r.json(); if(!r.ok)throw new Error(d.error||"Kunde inte räkna");
+   o.innerHTML="<b>≈ "+d.carbs_g+" g KH</b><br>"+d.interpretation+"<br><small>"+d.note+"</small>";
+   const foodName=document.getElementById("ownFoodName");
+   const foodQty=document.getElementById("ownFoodBaseQty");
+   const foodKh=document.getElementById("ownFoodKh");
+   if(foodName) foodName.value=i.value.trim();
+   if(foodQty) foodQty.value="1";
+   if(foodKh) foodKh.value=String(d.carbs_g);
+   document.querySelector(".my-food-white")?.scrollIntoView({behavior:"smooth",block:"start"});
+  }catch(e){o.textContent="Fel: "+e.message}finally{b.disabled=false}
+ });
+});
+</script>
+<script id="preworkout-script">
+(function(){
+ const $=id=>document.getElementById(id);
+ const clock=$('tempClock'), status=$('tempStatus'), confirmed=$('tempConfirmed');
+ if(!clock)return;
+ const END_KEY='ss_temp_target_end_v1', CONF_KEY='ss_temp_target_confirm_v1', LOG_KEY='ss_training_log_v1';
+ let ticker=null;
+ function fmt(ms){
+   const sec=Math.max(0,Math.ceil(ms/1000)),h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;
+   return [h,m,s].map(v=>String(v).padStart(2,'0')).join(':');
+ }
+ function updateClock(){
+   const end=Number(localStorage.getItem(END_KEY)||0);
+   if(!end){clock.textContent='02:00:00';status.textContent='Inte startad';return}
+   const left=end-Date.now();
+   if(left<=0){clock.textContent='00:00:00';status.textContent='2 timmar har gått';localStorage.removeItem(END_KEY);if(ticker){clearInterval(ticker);ticker=null}return}
+   clock.textContent=fmt(left); status.textContent='Temp Target-timer pågår';
+ }
+ function ensureTicker(){if(!ticker)ticker=setInterval(updateClock,1000);updateClock()}
+ $('tempStart').onclick=function(){
+   localStorage.setItem(END_KEY,String(Date.now()+2*60*60*1000));
+   confirmed.checked=true;localStorage.setItem(CONF_KEY,'1');ensureTicker();
+ };
+ $('tempReset').onclick=function(){
+   localStorage.removeItem(END_KEY);localStorage.removeItem(CONF_KEY);confirmed.checked=false;
+   if(ticker){clearInterval(ticker);ticker=null}updateClock();
+ };
+ confirmed.checked=localStorage.getItem(CONF_KEY)==='1';
+ confirmed.onchange=()=>localStorage.setItem(CONF_KEY,confirmed.checked?'1':'0');
+ if(Number(localStorage.getItem(END_KEY)||0)>Date.now())ensureTicker();else updateClock();
+
+ function n(id){return Number(String($(id)?.value||'').replace(',','.'))}
+ $('preAnalyse').onclick=function(){
+   const g=n('preGlucose'),iob=n('preIob'),act=$('preActivity').value,dur=Number($('preDuration').value),out=$('preResult');
+   if(!Number.isFinite(g)||g<=0){out.style.display='block';out.textContent='Fyll i blodsocker först.';return}
+   let notes=[];
+   if(g<5) notes.push('Startvärdet är lågt för träning – kontrollera läget och följ din behandlingsplan innan du börjar.');
+   else if(g<=13.9) notes.push('Startvärdet ligger inom ett vanligt generellt intervall som används vid träningsplanering.');
+   else notes.push('Startvärdet är högt – följ din behandlingsplan för höga värden före träning.');
+   if(Number.isFinite(iob)&&iob>0) notes.push('Du har aktivt insulin registrerat ('+iob.toLocaleString('sv-SE')+' E).');
+   if((act==='Promenad'||act==='Cardio'||act==='Simning')&&dur>=60) notes.push('Det här är ett längre pass som ofta kräver extra uppmärksamhet på glukos under och efter aktiviteten.');
+   notes.push('Temp Target markerad: '+(confirmed.checked?'ja':'nej')+'.');
+   out.style.display='block';
+   out.innerHTML='<b>'+g.toLocaleString('sv-SE')+' mmol/L · '+act+' · '+dur+' min</b><br>'+notes.join('<br>');
+ };
+ function renderHistory(){
+   const box=$('preHistory'); if(!box)return;
+   let a=[];try{a=JSON.parse(localStorage.getItem(LOG_KEY)||'[]')}catch{}
+   box.innerHTML=a.length?a.slice(-8).reverse().map(x=>'<div class="pre-log-item"><b>'+x.activity+' · '+x.duration+' min</b><br>'+x.before+' → '+x.after+' mmol/L · IOB '+x.iob+' E · Temp Target '+(x.temp?'✓':'–')+'<br><small>'+x.date+'</small></div>').join(''):'<div class="small" style="padding-top:8px">Inga sparade pass ännu.</div>';
+ }
+ $('preSave').onclick=function(){
+   const before=n('preGlucose'),after=n('postGlucose'),iob=n('preIob');
+   if(!Number.isFinite(before)||!Number.isFinite(after)){alert('Fyll i blodsocker före och efter.');return}
+   let a=[];try{a=JSON.parse(localStorage.getItem(LOG_KEY)||'[]')}catch{}
+   a.push({before,after,iob:Number.isFinite(iob)?iob:0,activity:$('preActivity').value,duration:Number($('preDuration').value),temp:confirmed.checked,date:new Date().toLocaleString('sv-SE')});
+   localStorage.setItem(LOG_KEY,JSON.stringify(a.slice(-50))); $('postGlucose').value='';renderHistory();
+ };
+ renderHistory();
+})();
+</script>
+
 </body></html>
-<style>
-#foodDbScroll,.food-db-wrap{display:none!important}
-.native-scroll-food{
-  display:block!important;
-  width:100%!important;
-  height:220px!important;
-  min-height:220px!important;
-  overflow-y:scroll!important;
-  -webkit-overflow-scrolling:touch;
-  box-sizing:border-box;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:6px;
-  background:#fff;
-  color:var(--text);
-  font-size:13px;
-}
-.native-scroll-food optgroup{font-weight:900}
-.native-scroll-food option{padding:5px 6px;white-space:normal}
-</style>
-
-<style>
-#ownCategoryTabs,
-#ownFoodCategory,
-label:has(#ownFoodCategory){display:none!important}
-.own-food-list{height:240px!important;max-height:240px!important;overflow-y:scroll!important;-webkit-overflow-scrolling:touch!important}
-</style>
-
-<style>
-#ownFoodList{display:block!important;visibility:visible!important;opacity:1!important;height:230px!important;overflow-y:auto!important;background:white!important}
-#ownFoodList .static-food{display:grid!important;grid-template-columns:1fr auto!important}
-</style>
-
-<style>
-#ownFoodList{height:330px!important;max-height:330px!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;padding:0 8px!important}
-.static-food-group{position:sticky;top:0;z-index:2;background:#fff7fb;padding:9px 5px;font-weight:950;font-size:13px;border-bottom:1px solid var(--border)}
-.static-food{display:grid!important;grid-template-columns:1fr auto!important;gap:8px!important}
-</style>
-
-<style>
-#ownFoodList{
-  display:block!important;
-  visibility:visible!important;
-  opacity:1!important;
-  height:360px!important;
-  max-height:360px!important;
-  overflow-y:scroll!important;
-  -webkit-overflow-scrolling:touch!important;
-  background:#fff!important;
-}
-.static-food-group{display:block!important}
-#ownFoodList .static-food{display:grid!important}
-</style>
